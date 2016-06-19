@@ -19,7 +19,7 @@ a:active  {color:yellow; background-color:transparent; text-decoration:underline
 <h1 class="forum_title">Discussion Forum</h1>
     <div id="wrapper">
     <div id="menu " class="well">
-    <a class="item" href="indx.php">Home</a>
+    <a class="item" href="index.php">Home</a>
     <a class="item" href="stream.php">Forum</a> 
     <a class="item" href="category.php">Categories</a>         
 
