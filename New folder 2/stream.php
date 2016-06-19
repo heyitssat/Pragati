@@ -54,7 +54,7 @@ echo"<a href='signout.php'>Sign out</a>
 				echo   "<tr id = '$no'>
 				<td> $row[qid]  </td>
 				<td> $row[qname] </td>
-				<td> <a href ='forum.php?qid=$no' >$row[question]; </a></td>
+				<td> <a href ='forum.php?qid=$no' >$row[question] </a></td>
 				<td> $row[reg_time] </td>
 			</tr>";
 			}
