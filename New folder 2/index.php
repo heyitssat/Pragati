@@ -30,16 +30,26 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">PRAGATI</a>
-    </div>
+    </div> 
     <ul  >
       <li style="display:inline" class="active"><a href="">Home</a></li>
       <li style="display:inline"><a href="stream.php">Forum</a></li>  
       <li style="display:inline"><a href="category.php">Discussion Topics</a></li>
       <li style="display:inline"><a href="#">About Us</a></li>
-</ul>
+
+    <?php
+if(!isset($_SESSION['signed_in'])){
+echo"<li style='display:inline;float:right' ><a href='signin.php'>Sign in</a></li>";
+}else{
+echo"<li style='display:inline; float:right' ><a href='signout.php'>Sign out</a></li>
+";
+}
+?>
+  
+    </ul>
   </div>
 </nav>
-  
+   
   <div id="boxWrapp">
     <div class="main-nav clearfix">
 	  <!-- navbar -->
