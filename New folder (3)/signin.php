@@ -2,7 +2,8 @@
 session_start();
 //signin.php
 //require_once('connect.php');
-include 'header_test.php';
+//include 'header_test.php';
+include 'head.php';
 
     $servername = "localhost";
     $username = "root";
@@ -150,5 +151,5 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-include 'footer.php';
+include 'foot.php';
 ?>

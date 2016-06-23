@@ -1,6 +1,7 @@
 <?php
 session_start();
 include'header_test.php';
+include 'head.php';
 $servername = "localhost";
 	$username = "root";
 	$database = "questions";
@@ -28,15 +29,6 @@ echo"<a href='signout.php'>Sign out</a>
 </div>";
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title> A streamline </title>
-	<link rel="icon" href="fevicon.png" type="image/gif" sizes="16x16">
-	<script src="mess.js"> </script>
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-</head>
-<body>
 
 	<div class="container">
 	<div class="row">
@@ -61,5 +53,6 @@ echo"<a href='signout.php'>Sign out</a>
 		</table>
         
     	<br><a href="check.php?s=3"	>Start a new discussion</a><br>
-</body>
-</html>
+<?php
+include 'foot.php';
+?>

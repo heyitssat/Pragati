@@ -1,6 +1,7 @@
 <?php
     session_start();
     include 'header_test.php';
+    include 'head.php';
 if(!isset($_SESSION['signed_in'])){
 echo"<div style='float:right'><a href='signin.php'>Sign in</a></div>";
 }else{
@@ -19,13 +20,6 @@ echo"<div style='float:right'><a href='signout.php'>Sign out</a></div>";
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Category </title>
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">    
-    </head>
-<body>
 
 	<div class="container">
 	<div class="row">
@@ -69,9 +63,8 @@ echo "</table></div><br>";
 $temp--;
 } 
 $conn->close();
-            ?>
-    
-    </body>
-</html>
 
+include 'foot.php';
+?>
+    
     

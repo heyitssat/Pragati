@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-</head>
-<body>
+<?php
+include 'head.php';
+?>
 
 
 <script>
@@ -25,8 +22,6 @@ function myFunction() {
 }
 </script>
 
-</body>
-</html>
 <?php
 session_start();
 include 'header_test.php';
@@ -55,7 +50,7 @@ echo "
 <br>
 Question
 <textarea name='question' required rows='10' cols='30'></textarea><input type='submit' name='post'></input></form>
-<label>Select category<select name='id' form='a' id='cat'>  ";
+<label>Select Topic<select name='id' form='a' id='cat'>  ";
 
                 $query = "SELECT * from `categories`";
                 $result = $conn->query($query);
@@ -67,11 +62,12 @@ echo"</select></label>
 <button type='button' class='btn btn-primary' style='width:20%' onclick='myFunction()' id='but' value='1'>Create a new topic</button>
 <p id='demo'></p>
 ";
-echo $_SESSION['user_name'];
+//echo $_SESSION['user_name'];
 
 }else{echo"u r not signed in.<a href='signin.php'>Click here to login</a>";
 
 }
+include 'foot.php';
 ?>
 
 

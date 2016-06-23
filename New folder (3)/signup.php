@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'head.php';
 //signup.php
 
     $servername = "localhost";
@@ -115,5 +116,5 @@ else
   $data = htmlspecialchars($data);
   return $data;
 }
-include 'footer.php';
+include 'foot.php';
 ?>
