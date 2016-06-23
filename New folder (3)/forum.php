@@ -1,14 +1,11 @@
 <?php
     session_start();
+    include 'head.php';
     include 'header_test.php';
 
 $pid = $_GET['qid'];
  #echo $pid;
-if(!isset($_SESSION['signed_in'])){
-echo"<div style='float:right'><a href='signin.php'>Sign in</a></div>";
-}else{
-echo"<div style='float:right'><a href='signout.php'>Sign out</a></div>";
-}
+
 ?>
 
 <?php
@@ -143,14 +140,6 @@ while($no<=$pid) {
     */
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Forum </title>
-	<link rel="icon" href="fevicon.png" type="image/gif" sizes="16x16">
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-</head>
-<body>
 
 	<div class="container">
 	<div class="row">
@@ -170,7 +159,8 @@ while($no<=$pid) {
         ?>
     </tr>
     </div>
-    
+    </div>
+    </div>
     <?php
     
     if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
@@ -249,7 +239,7 @@ function test_input($data) {
         <input type="submit" value="post">
     </form>
     </div>
-</body>
-</html>
-
+<?php
+include 'foot.php';
+?>
     
