@@ -10,10 +10,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-markdown.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+    <script src="js/bootstrap-markdown.js"></script>
+<script src="jquery-3.0.0.js"></script> 
+    
     <link href="css/style.css" rel="stylesheet">
     <link href="css/ekko-lightbox.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
@@ -76,6 +79,7 @@ li a:hover:not(.active) {
       <li style="display:inline" class="b"><a href="index.php">Home</a></li>
       <li style="display:inline" class="b"><a href="stream.php">Forum</a></li>  
       <li style="display:inline" class="b"><a href="category.php">Discussion Topics</a></li>
+      <li style="display:inline" class="b"><a href="users.php">Users</a></li>
       <li style="display:inline" class="b"><a href="#">About Us</a></li>
 
     <?php
