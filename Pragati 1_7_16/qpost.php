@@ -21,7 +21,7 @@ function myFunction() {
 }*/
 }
 </script>
-
+<div class="container">
 <?php
 include 'header_test.php';
  $servername = "localhost";
@@ -48,7 +48,7 @@ echo "
 <form method='post' action='qlist.php' id='a'>
 <br>
 <p style='color:#888888'> <b>Question</b></p>
-<textarea name='question' required rows='10' cols='30'></textarea><input type='submit' name='post'></input></form>
+<textarea name='question' class='ckeditor' required style='width:100%'></textarea><input type='submit' name='post'></input></form>
 <label>Select Topic<select name='id' form='a' id='cat'>  ";
 
                 $query = "SELECT * from `categories`";
@@ -65,7 +65,8 @@ echo"</select></label>
 
 }else{echo"<p>You are not signed in.<a href='signin.php'>Click here to login</a></p>";
 
-}
+}?>
+</div><?php
 include 'foot.php';
 ?>
 
