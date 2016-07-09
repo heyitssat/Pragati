@@ -44,8 +44,12 @@ function showUser(str) {
 
                 if(x==""){
                 document.getElementById("chosed").innerHTML = xmlhttp.responseText;
+                document.getElementById("refresh").innerHTML ='<a href="">Refresh</a>the Page';
+                
                 }else{
                 document.getElementById("chosed").innerHTML =""+x +xmlhttp.responseText;
+                document.getElementById("refresh").innerHTML ='<a href="users.php">Refresh</a> the Page';
+                
                 }
             }
         };
@@ -54,10 +58,79 @@ function showUser(str) {
     }
 }
 </script>
+
+
  <div class="container">
-<div class="well" style="height:100px"></div>  
+<div class="well" style="">
+<p>Your Favorites</p>
+<p>Remove unnecessary?</p>
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $database = "questions";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+//to delete the fav tag
+if(isset($_GET['del'])){
+                $del = $_GET['del'];
+                echo "kdfjk";
+                $sap= $_SESSION['user_id'];
+
+                 $sql= "SELECT fav_tags FROM users WHERE user_id=$sap";
+                        $result = mysqli_query($conn,$sql);
+                        $row = $result->fetch_assoc();
+                            $fav_tags=$row['fav_tags'];
+
+                            $fav_tags=str_replace("$del","","$fav_tags");
+                            $fav_tags=str_replace(",,",",","$fav_tags");
+                            $fav_tags= trim($fav_tags,",");
+                            $fav_tags=str_replace("","","$fav_tags");
+                            //remove that no. 
+
+                $sql="UPDATE `users` SET `fav_tags`= '$fav_tags' WHERE user_id=$sap";           //inverted commas had to be used in '$qans' as it is string
+                                     
+                if($conn->query($sql)){
+                                echo "deleted";
+                }
+}
+    if(isset($_SESSION['signed_in'])){
+            $sap=$_SESSION['user_id'];
+
+            $sql= "SELECT fav_tags FROM users WHERE user_id=$sap";
+            $result = mysqli_query($conn,$sql);
+            $row = $result->fetch_assoc();
+                $fav_tags=$row['fav_tags'];
+
+                $arr=explode(",",$fav_tags);
+                        $l=count($arr);
+                        $i=0;
+
+                    while($l--){
+                            $temp= $arr[$i];
+                            $i++;
+echo $temp;
+echo "kjrdfdkjf";
+                        if(is_numeric($temp)){
+                            $sqa = "SELECT cat_name FROM `categories` WHERE cat_id=$temp";
+                            $resa = mysqli_query($conn,$sqa);
+                            $roa = $resa->fetch_assoc();
+                            echo  "<span><li style='display:inline;'><a href='?del=$temp'>$roa[cat_name]</a></li></span>";
+                        }
+                    }
+
+            }?>
+</div>  
 <div class="row">
 <?php
+
 
 if(isset($_SESSION['signed_in'])){
  echo '  <div class="well">
@@ -65,18 +138,9 @@ if(isset($_SESSION['signed_in'])){
 Add Favorites <input type="text" onkeyup="showHint(this.value)">
 </form>
 <p><span id="txtHint"></span></p>
-<p><span id="chosed">You added </span></p></div>';
+<p><span id="chosed">You added </span></p></div>
+<p id="refresh"></p>';
 }
-
-	
-    $servername = "localhost";
-	$username = "root";
-	$database = "questions";
-	$password = "";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $database);
-            
    
  if(!isset($_GET['uid'])){
  	
@@ -121,12 +185,13 @@ Add Favorites <input type="text" onkeyup="showHint(this.value)">
     			while($l--){
 	    			$temp= $arr[$i];
 	    		    $i++;
-	    		    $sqa = "SELECT cat_name FROM `categories` WHERE cat_id=$temp";
+	    		if(is_numeric($temp)){
+                    $sqa = "SELECT cat_name FROM `categories` WHERE cat_id=$temp";
 				    $resa = mysqli_query($conn,$sqa);
 	    			$roa = $resa->fetch_assoc();
 	    			echo "$roa[cat_name] ";
-	    		}
-	    
+	    		 }
+	           }
 
 	    		echo " </div></a>";
 		}
